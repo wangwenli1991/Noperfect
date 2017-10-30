@@ -21,11 +21,16 @@ Route::get('/test', function () {
     return view('welcome',compact('tasks'));
 });
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/biao',function () {
-	return view('template1.index');
+Route::get('/test1',function(){
+	$tasks=DB::table('tasks')->get();
+	return $tasks;
 });
+
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/biao',function () {
+// 	return view('template1.index');
+// });
