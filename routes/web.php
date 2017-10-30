@@ -11,8 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/test', function () {
+	$tasks = [
+		'下了班去吃饭',
+		'吃了饭去星巴克写东西',
+		'写完东西回家睡觉'
+
+	];
+    return view('welcome',compact('tasks'));
 });
 
 
