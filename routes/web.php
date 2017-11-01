@@ -1,24 +1,16 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Task;
 
 Route::get('/test', function () {
 	$tasks = [
 		'下了班去吃饭',
-		'吃了饭去星巴克写东西',
+		'吃了饭打豆豆',
 		'写完东西回家睡觉'
 
 	];
-    return view('welcome',compact('tasks'));
+// dd($tasks);
+    return view('welcome',compact('task'));
 });
 
 Route::get('/test1',function(){
@@ -26,6 +18,10 @@ Route::get('/test1',function(){
 	return $tasks;
 });
 
+Route::get('/tasks','TasksController@index');
+
+
+Route::get('/tasks/{task}','TasksController@tasks1');
 
 // Auth::routes();
 

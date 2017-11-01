@@ -82,10 +82,9 @@
                     Laravel(面向需求开发产品)
                 </div>
                 <ul>
-                    
                 @foreach($tasks as $task)
 
-                    <li>{{ $task }}</li>
+                    <li>{{ $task->body }}</li>
 
                 @endforeach
                 </ul>
