@@ -10,12 +10,12 @@ Route::get('/test', function () {
 
 	];
 // dd($tasks);
-    return view('welcome',compact('task'));
+    return view('welcome',compact('tasks'));
 });
 
 Route::get('/test1',function(){
 	$tasks=DB::table('tasks')->get();
-	return $tasks;
+	return view('welcome',compact('tasks'));
 });
 
 Route::get('/tasks','TasksController@index');

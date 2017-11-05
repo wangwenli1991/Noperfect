@@ -84,7 +84,7 @@
                 <ul>
                 @foreach($tasks as $task)
 
-                    <li>{{ $task->body }}</li>
+                    <li>{{ $task }}</li>
 
                 @endforeach
                 </ul>
