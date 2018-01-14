@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $persons = \DB::table('users')->pluck('name','email','created_at','update_at');
+        $bodys = \DB::table('tasks')->pluck('body','created_at','update_at');
+
+
+        return view('home',compact('persons','bodys'));
     }
 }

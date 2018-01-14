@@ -8,7 +8,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="/css/googlefont.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -79,15 +79,17 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel(面向需求开发产品)
                 </div>
-                <ul>
-                @foreach($tasks as $task)
+<ol>
+    
+@foreach($body as $content)
 
-                    <li>{{ $task }}</li>
+<li>{{ $content }}</li>
 
-                @endforeach
-                </ul>
+@endforeach
+</ol>
+                    
+
 
 
             </div>
