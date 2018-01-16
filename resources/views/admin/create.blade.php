@@ -584,7 +584,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action='{{ asset('/admin/user/create') }}'>
+            <form role="form" method="POST" action='{{ asset('/admin/user/store') }}'>
                   {{ csrf_field() }}
 
               <div class="box-body">

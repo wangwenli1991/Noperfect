@@ -45,6 +45,8 @@ Route::get('/admin','AdminController@index')->name('home');
 	//增加信息
 		//跳到添加表单  /user/create
 Route::get('/admin/user/create','AdminController@create')->name('home');
+Route::post('/admin/user/store','AdminController@store')->name('home');
+
 		//接收表单并提交
 Route::get('/admin/user/createform','AdminController@createform')->name('home');
 Route::post('/admin/user/store','AdminController@update')->name('home');
@@ -67,10 +69,7 @@ Route::get('/admin/user','AdminController@user')->name('home');
 
 
 
-Route::get('/admin/user/add/{id}','PostController@show'); //增
-Route::get('/admin/user/delete1/{id}','PostController@show');     //删 
-Route::get('/admin/user/edit/{id}','PostController@show');     //改 
-Route::get('/admin/user/show/{id}','PostController@show');     //查
+
 
 
 

@@ -27,13 +27,13 @@ class AdminController extends Controller
 
 //增加新用户创建新用户create web  /admin/user/create
 
-    public function createform()
+    public function store(Request $request)
     {
-        return view('admin.store');
         $this->validate(request(),[
             'title' => 'required',
             'body'  => 'required'
         ]);        
+            echo "添加成功";die;
 Post::create(request(['title','body']));
     }
         //跳到添加用户表单
@@ -65,7 +65,6 @@ return view('admin.create');
         // $user = User::where('id',$request->only('id'))->first();
         // $user = DB::table('users')->where('id',$id);
 $users = \DB::table('users')->where('id', $id)->first();
-dd($user);
 
 
         return view('admin.update',compact('users'));
