@@ -575,24 +575,52 @@
                 <tbody>
 
 
-                  @foreach($users as $user)
-                <tr>
-                   <td>{{ $user->id }}</td>     
-                   <td>{{ $user->name }}</td>     
-                   <td>{{ $user->email }}</td>     
-                   <td>{{ $user->password }}</td>     
-                   <td>{{ $user->created_at }}</td>     
-                   <td>{{ $user->updated_at }}</td>     
-                  
-                        <td>
-                            <span class="btn-group">
-                                <a href='{{ asset('/admin/user/edit')}}/{{ $user->id }}' class="btn btn-small">编辑<i class="icon-pencil"></i></a>
-                                <a href='{{ asset('/admin/user/delete')}}/{{ $user->id }}' class="btn btn-small">删除<i class="icon-trash"></i></a>
-                            </span>
-                        </td>
 
-                </tr>
-                  @endforeach
+
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">修改信息</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" method="POST" action='{{ asset('/admin/user/create') }}'>
+                  {{ csrf_field() }}
+
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">id</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="1">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">name</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="1">
+                </div>
+<!--                 
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Check me out
+                  </label>
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+
+
+
+
+
+
+
+
+
+                  
+
                 </tbody>
                 <tfoot>
                 <tr>

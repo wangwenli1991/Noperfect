@@ -575,24 +575,77 @@
                 <tbody>
 
 
-                  @foreach($users as $user)
-                <tr>
-                   <td>{{ $user->id }}</td>     
-                   <td>{{ $user->name }}</td>     
-                   <td>{{ $user->email }}</td>     
-                   <td>{{ $user->password }}</td>     
-                   <td>{{ $user->created_at }}</td>     
-                   <td>{{ $user->updated_at }}</td>     
-                  
-                        <td>
-                            <span class="btn-group">
-                                <a href='{{ asset('/admin/user/edit')}}/{{ $user->id }}' class="btn btn-small">编辑<i class="icon-pencil"></i></a>
-                                <a href='{{ asset('/admin/user/delete')}}/{{ $user->id }}' class="btn btn-small">删除<i class="icon-trash"></i></a>
-                            </span>
-                        </td>
 
-                </tr>
-                  @endforeach
+
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">修改信息</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" method="POST" action='{{ asset('/admin/user/update') }}'>
+                  {{ csrf_field() }}
+
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">id</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="{{ $users->id }}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">name</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->name }}">
+                </div>
+<!--                 <div class="form-group">
+                  <label for="exampleInputPassword1">email</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->email }}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->password }}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">remember_token</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->remember_token }}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">注册时间</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->created_at }}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">最后修改时间</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->updated_at }}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile">
+
+                  <p class="help-block">Example block-level help text here.</p>
+                </div> -->
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Check me out
+                  </label>
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+
+
+
+
+
+
+
+
+
+                  
+
                 </tbody>
                 <tfoot>
                 <tr>
