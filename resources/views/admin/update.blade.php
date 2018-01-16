@@ -584,17 +584,17 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action='{{ asset('/admin/user/update') }}'>
+            <form role="form" method="POST" action='{{ asset('/admin/user/store') }}'>
                   {{ csrf_field() }}
 
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">id</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="{{ $users->id }}">
+                  <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $users->id }}" placeholder="{{ $users->id }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">name</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->name }}">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{ $users->name }}" placeholder="{{ $users->name }}">
                 </div>
 <!--                 <div class="form-group">
                   <label for="exampleInputPassword1">email</label>

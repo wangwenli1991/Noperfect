@@ -47,9 +47,10 @@ Route::get('/admin','AdminController@index')->name('home');
 Route::get('/admin/user/create','AdminController@create')->name('home');
 Route::post('/admin/user/store','AdminController@store')->name('home');
 
-		//接收表单并提交
-Route::get('/admin/user/createform','AdminController@createform')->name('home');
-Route::post('/admin/user/store','AdminController@update')->name('home');
+		//修改用户信息接收表单并提交
+Route::get('/admin/user/createform','AdminController@create')->name('home');
+Route::post('/admin/user/update','AdminController@update')->name('home');
+Route::post('/admin/user/store','AdminController@store')->name('home');
 	
 
 

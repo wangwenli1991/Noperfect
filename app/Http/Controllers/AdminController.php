@@ -26,15 +26,17 @@ class AdminController extends Controller
 
 
 //增加新用户创建新用户create web  /admin/user/create
-
+            //接收修改过的用户信息并插入数据库
     public function store(Request $request)
     {
-        $this->validate(request(),[
-            'title' => 'required',
-            'body'  => 'required'
-        ]);        
-            echo "添加成功";die;
-Post::create(request(['title','body']));
+        $name = $request->input('name');
+        dd($name)
+
+    
+        $validatedData = $request->validate([
+            'id' => 'required|unique:posts|max:255',
+            'name' => 'required',
+        ]);     
     }
         //跳到添加用户表单
     public function create()
