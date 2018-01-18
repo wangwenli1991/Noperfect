@@ -45,7 +45,7 @@ Route::get('/admin',function(){
 
 	]);
 });
-// Route::get('/admin','AdminController@index')->name('home');
+Route::get('/admin','AdminController@index')->name('home');
 
 
 //后台user表
@@ -63,18 +63,24 @@ Route::post('/admin/user/store','AdminController@store')->name('home');
 
 	//删除信息
 
-Route::get('/admin/user/delete/{id}','AdminController@delete')->name('home');
-	//修改信息
+Route::get('/admin/user/delete/{id}','AdminController@delete');
+
+    	//修改信息
 Route::get('/admin/user/edit/{id}','AdminController@edit')->name('home');
 
 	//user表显示
 Route::get('/admin/user','AdminController@user')->name('home');
 
 
+
+
+
+
+Route::group(['middleware' => ['web']], function () {
+
 /**
 *	task增删改查例子
 */
-	
 	
     /**
      * Show Task Dashboard
@@ -116,7 +122,7 @@ Route::get('/admin/user','AdminController@user')->name('home');
         return redirect('/tasks');
     });
 
-
+});
 
 
 

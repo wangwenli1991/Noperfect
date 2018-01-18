@@ -31,7 +31,7 @@ class AdminController extends Controller
     {
         $name = $request->input('name');
 
-    
+
         $validatedData = $request->validate([
             'id' => 'required|unique:posts|max:255',
             'name' => 'required',
@@ -51,13 +51,11 @@ return view('admin.create');
 //删除数据  delete   提交到 /delete/{id}
     public function delete(Request $request)
     {
-        echo "从这里继续写";die;
-        $id = $request->input('id');
-        if(User::where('id',$id)->first()->delete()){
-            return back()->with('info','删除成功!');
-        }else{
-            return back()->with('error','删除失败!');
-        }
+
+        //把$id接过来
+\DB::table('users')->where('id', '=', $id)->delete();
+    return view('/admin/user');
+
     }
 
 //改  编辑信息  update   修改信息 /update
@@ -103,6 +101,7 @@ public function update(Request $request){
 
     public function index()
     {
+        
 
         $persons = \DB::table('users')->pluck('name','email','created_at','update_at');
         $bodys = \DB::table('tasks')->pluck('body','created_at','update_at');
