@@ -30,7 +30,6 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $name = $request->input('name');
-        dd($name)
 
     
         $validatedData = $request->validate([

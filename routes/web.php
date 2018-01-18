@@ -1,6 +1,7 @@
 <?php
 
 use App\Task;
+use Illuminate\Http\Request;
 
 
 Route::get('/','WelcomeController@index');
@@ -38,7 +39,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin','AdminController@index')->name('home');
+Route::get('/admin',function(){
+	return view('admin.tasks',[
+            'tasks' => Task::orderBy('created_at', 'asc')->get()
+
+	]);
+});
+// Route::get('/admin','AdminController@index')->name('home');
 
 
 //后台user表
@@ -63,14 +70,51 @@ Route::get('/admin/user/edit/{id}','AdminController@edit')->name('home');
 	//user表显示
 Route::get('/admin/user','AdminController@user')->name('home');
 
+
+/**
+*	task增删改查例子
+*/
 	
 	
+    /**
+     * Show Task Dashboard
+     */
+    Route::get('/tasks', function () {
+        return view('tasks', [
+            'tasks' => Task::orderBy('created_at', 'asc')->get()
+        ]);
+    });
+
+    /**
+     * Add New Task
+     */
+    Route::post('/task', function (Request $request) {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/tasks')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        $task = new Task;
+        $task->name = $request->name;
+        $task->save();
+
+        return redirect('/tasks');
+    });
 
 
+    /**
+     * Delete Task
+     */
+    Route::delete('/task/{id}', function ($id) {
+        Task::findOrFail($id)->delete();
 
-
-
-
+        return redirect('/tasks');
+    });
 
 
 
