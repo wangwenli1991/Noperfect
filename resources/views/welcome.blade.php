@@ -80,6 +80,29 @@
             <div class="content">
                 <div class="title m-b-md">
                 </div>
+
+<table>
+    <tr>
+        <td>显示当前目录</td>
+        <td>{{ url()->current()}}</td>
+    </tr>
+    <tr>
+        <td>功能0:</td>
+        <td><a href='{{url('/')}}'>首页</a></td>
+    </tr>    <tr>
+        <td>功能1:</td>
+        <td><a href='{{url('/admin')}}'>后台</a></td>
+    </tr>
+    <tr>
+        <td>功能2</td>
+        <td><a href="{{url('/tasks')}}">tasks</a></td>
+    </tr>    <tr>
+        <td>功能3</td>
+        <td><a href='{{url('/myper')}}'>myper</a></td>
+    </tr>
+</table>
+
+
 <ol>
     
 @foreach($body as $content)

@@ -584,44 +584,44 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action='{{ asset('/admin/user/store') }}'>
+            <form role="form" method="POST" action='{{ url('/admin/user/store') }}'>
                   {{ csrf_field() }}
 
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">id</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $users->id }}" placeholder="{{ $users->id }}">
+                  <input type="text" name='id' class="form-control" id="exampleInputEmail1" value="{{ $users->id }}" placeholder="{{ $users->id }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">name</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{ $users->name }}" placeholder="{{ $users->name }}">
+                  <input type="text" name='name' class="form-control" id="exampleInputPassword1" value="{{ $users->name }}" placeholder="{{ $users->name }}">
                 </div>
-<!--                 <div class="form-group">
+                <div class="form-group">
                   <label for="exampleInputPassword1">email</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->email }}">
+                  <input type="text" name='email' class="form-control" id="exampleInputPassword1" value="{{ $users->email }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->password }}">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" value="{{ $users->password }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">remember_token</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->remember_token }}">
+                  <input type="text-red" name="remember_token" class="form-control" id="exampleInputPassword1" value="{{ $users->remember_token }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">注册时间</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->created_at }}">
+                  <input type="text" name="created_at" class="form-control" id="exampleInputPassword1" value="{{ $users->created_at }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">最后修改时间</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ $users->updated_at }}">
+                  <input type="text" name="updated_at" class="form-control" id="exampleInputPassword1" value="{{ $users->updated_at }}">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
                   <input type="file" id="exampleInputFile">
 
                   <p class="help-block">Example block-level help text here.</p>
-                </div> -->
+                </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"> Check me out

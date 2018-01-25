@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request; //尝试使用请求提交更新表单时遇到此错误。
+use App\User;
+use Illuminate\Support\Facades\Input;//接收post传值
+// use Illuminate\Http\Request;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\RegistrationRequest;//执行php artisan make:request RegistrationRequest
 
 
 class AdminController extends Controller
@@ -27,15 +31,38 @@ class AdminController extends Controller
 
 //增加新用户创建新用户create web  /admin/user/create
             //接收修改过的用户信息并插入数据库
-    public function store(Request $request)
+    public function store(request $request)
     {
-        $name = $request->input('name');
+        $user=new User;
+        $user=$request;
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required|max:255',
+        // ]);
 
+        // if ($validator->fails()) {
+        //     return redirect('/')
+        //         ->withInput()
+        //         ->withErrors($validator);
+        // }
 
-        $validatedData = $request->validate([
-            'id' => 'required|unique:posts|max:255',
-            'name' => 'required',
-        ]);     
+        // $user = new User;
+        // $user->name = $request->name;
+        // $user->save();
+
+        \DB::table('users')
+            ->where('id', $request->id)
+            ->update([
+                'id'=>$request->id,
+                'name' => $request->name,
+                'email'=> $request->email,
+                'password'=>$request->password,
+                'created_at'=>$request->created_at,
+                'updated_at'=>$request->updated_at,
+             ]);
+
+        return redirect('/admin/user');
+    
+
     }
         //跳到添加用户表单
     public function create()
@@ -49,12 +76,15 @@ return view('admin.create');
 
 
 //删除数据  delete   提交到 /delete/{id}
-    public function delete(Request $request)
+    public function delete(Request $request,$id=NULL)
     {
+        
 
+        // dd($id);
         //把$id接过来
-\DB::table('users')->where('id', '=', $id)->delete();
-    return view('/admin/user');
+\DB::table('users')->where('id', $id)->delete();
+    return redirect('/admin/user');
+    // return view('/admin/user',compact('users'));
 
     }
 

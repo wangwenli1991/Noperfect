@@ -9,7 +9,9 @@
         "barryvdh/laravel-debugbar": "^3.1",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "web-feet/coasterframework":"5.4.*"
+
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -29,7 +31,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+        "web-feet / coasterframework":"5.5。*"
+            
         }
     },
     "extra": {

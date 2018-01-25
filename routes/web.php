@@ -58,15 +58,17 @@ Route::post('/admin/user/store','AdminController@store')->name('home');
 Route::get('/admin/user/createform','AdminController@create')->name('home');
 Route::post('/admin/user/update','AdminController@update')->name('home');
 Route::post('/admin/user/store','AdminController@store')->name('home');
-	
+
 
 
 	//删除信息
 
-Route::get('/admin/user/delete/{id}','AdminController@delete');
+Route::get('/admin/user/delete/{id}','AdminController@delete')->name('home');
 
     	//修改信息
 Route::get('/admin/user/edit/{id}','AdminController@edit')->name('home');
+// Route::post('/admin/user/store/','AdminController@store')->name('home');
+Route::post('admin/user/edit','AdminController@edit');
 
 	//user表显示
 Route::get('/admin/user','AdminController@user')->name('home');
