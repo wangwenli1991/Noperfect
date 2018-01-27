@@ -98,7 +98,7 @@ Route::group(['middleware' => ['web']], function () {
      */
     Route::post('/task', function (Request $request) {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
+            'body' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -108,7 +108,9 @@ Route::group(['middleware' => ['web']], function () {
         }
 
         $task = new Task;
-        $task->name = $request->name;
+
+        $task->body = $request->body;
+        $task->title = $request->title;
         $task->save();
 
         return redirect('/tasks');

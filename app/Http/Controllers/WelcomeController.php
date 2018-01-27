@@ -18,7 +18,7 @@ class WelcomeController extends Controller
     {
     	$user=\DB::table('users')->pluck('name');
 
-    	$body= \DB::table('tasks')->pluck('body');
+	    	$body= \DB::table('tasks')->pluck('body');
 
     	return view('welcome',compact('body','user'));
 

@@ -72,7 +72,7 @@
             <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Notifications</a>
+            <a class="nav-link" href="#">视频</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>
@@ -90,64 +90,77 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2" type="text" placeholder="搜搜看" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
         </form>
       </div>
     </nav>
 
     <div class="nav-scroller bg-white box-shadow">
       <nav class="nav nav-underline">
-        <a class="nav-link active" href="#">Dashboard</a>
         <a class="nav-link" href="#">
           Friends
           <span class="badge badge-pill bg-light align-text-bottom">27</span>
         </a>
-        <a class="nav-link" href="#">Explore</a>
+        <a class="nav-link active" href='{{url('/')}}'>幽默笑话</a>
+        <a class="nav-link" href='{{url('/admin')}}'>后台入口</a>
+        <a class="nav-link" href='{{url('/tasks')}}'>发布文章</a>
+        <a class="nav-link" href='{{url('/myper')}}'>myper博客</a>
+        <a class="nav-link" href='{{url('/')}}'>Explore</a>
+        <a class="nav-link" href='{{url('/')}}'>Explore</a>
         <a class="nav-link" href="#">Suggestions</a>
         <a class="nav-link" href="#">Link</a>
         <a class="nav-link" href="#">Link</a>
         <a class="nav-link" href="#">Link</a>
         <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">当前目录:{{ url()->current()}}</a>
       </nav>
     </div>
 
     <main role="main" class="container">
-      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+<!--       <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
         <img class="mr-3" src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg" alt="" width="48" height="48">
         <div class="lh-100">
           <h6 class="mb-0 text-white lh-100">Bootstrap</h6>
           <small>Since 2011</small>
         </div>
       </div>
-
+ -->
       <div class="my-3 p-3 bg-white rounded box-shadow">
-        <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
-
-        <div class="media text-muted pt-3">
+        <h6 class="border-bottom border-gray pb-2 mb-0">最新更新</h6>
+        <p>
+          本站功能:1,发布文章,不登录发布需要审核,登陆发布积分奖励
+          2/度过的文章不会再次出现
+          3/点赞功能,
+          4/本站初衷:
+        </p>
+<!--         <div class="media text-muted pt-3">
           <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
           <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark">@username</strong>
             Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
           </p>
         </div>
+ -->
 
 
-
+  <ol>
 @foreach($body as $content)
         <div class="media text-muted pt-3">
-          <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+          <!-- <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded"> -->
           <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark">
             </strong>
+    <li>
             <p>{{ $content }}</p>
-            <!-- 这里是评论内容1        这里是评论内容2        这里是评论内容1 -->
+    </li>
+
           </p>
         </div>
-<!-- <li>{{ $content }}</li> -->
+      
 
 @endforeach
+  </ol>          
 </ol>
 
 
