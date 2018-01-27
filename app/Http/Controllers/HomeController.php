@@ -27,8 +27,8 @@ class HomeController extends Controller
 
         $persons = \DB::table('users')->pluck('name','email','created_at','update_at');
         $bodys = \DB::table('tasks')->pluck('body','created_at','update_at');
-
-
         return view('home',compact('persons','bodys'));
     }
 }
+
+

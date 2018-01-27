@@ -16,9 +16,11 @@ class WelcomeController extends Controller
     //网站首页
     public function index()
     {
+    	$user=\DB::table('users')->pluck('name');
+
     	$body= \DB::table('tasks')->pluck('body');
 
-    	return view('welcome',compact('body'));
+    	return view('welcome',compact('body','user'));
 
         
     }
