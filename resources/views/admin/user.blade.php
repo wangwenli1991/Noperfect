@@ -566,8 +566,9 @@
                 <tr>
                   <th>id</th>
                   <th>姓名name</th>
+                  <th>头像image</th>
                   <th>邮件email</th>
-                  <th>登陆密码</th>
+                  <!-- <th>登陆密码</th> -->
                   <th>创建时间create_at</th>
                   <th>最后修改时间update_at</th>
                 </tr>
@@ -579,15 +580,16 @@
                 <tr>
                    <td>{{ $user->id }}</td>     
                    <td>{{ $user->name }}</td>     
+                   <td><img src="{{ asset('/avatar/'.$user->image) }}" width="30" height="30"></td>     
                    <td>{{ $user->email }}</td>     
-                   <td>{{ $user->password }}</td>     
+                   <!-- <td width="10">{{ $user->password }}</td>      -->
                    <td>{{ $user->created_at }}</td>     
                    <td>{{ $user->updated_at }}</td>     
                   
                         <td>
                             <span class="btn-group">
                                 <a href='{{ asset('/admin/user/edit')}}/{{ $user->id }}' class="btn btn-small">编辑<i class="icon-pencil"></i></a>
-                                <a href='{{ asset('/admin/user/delete')}}/{{ $user->id }}' class="btn btn-small">删除<i class="icon-trash"></i></a>
+                                <a data-id="{{$user->id}}" class="btn btn-small del-a">删除<i class="icon-trash"></i></a>
                             </span>
                         </td>
 
@@ -821,33 +823,41 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- <script src="../../bower_components/jquery/dist/jquery.min.js"></script> -->
 <!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
 <!-- DataTables -->
-<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script> -->
+<!-- <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script> -->
 <!-- SlimScroll -->
-<script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script> -->
 <!-- FastClick -->
-<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<!-- <script src="../../bower_components/fastclick/lib/fastclick.js"></script> -->
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<!-- <script src="../../dist/js/adminlte.min.js"></script> -->
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<!-- <script src="../../dist/js/demo.js"></script> -->
+<script src='{{ asset('/js/jquery.js') }}'></script>
 <!-- page script -->
 <script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
+  // $(function () {
+  //   $('#example1').DataTable()
+  //   $('#example2').DataTable({
+  //     'paging'      : true,
+  //     'lengthChange': false,
+  //     'searching'   : false,
+  //     'ordering'    : true,
+  //     'info'        : true,
+  //     'autoWidth'   : false
+  //   })
+  // })
+  $(".del-a").click(function(){
+      var id= $(this).attr('data-id');
+      if( confirm('确定要删除吗?') )
+      {
+          window.location.href="{{ url('/admin/user/delete/') }}/"+id;
+      }
+  });
 </script>
 </body>
 </html>

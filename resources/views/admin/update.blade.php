@@ -584,7 +584,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action='{{ url('/admin/user/store') }}'>
+            <form role="form" method="POST" action='{{ url('/admin/user/store') }}' enctype="multipart/form-data">
                   {{ csrf_field() }}
 
               <div class="box-body">
@@ -618,7 +618,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
+                  <input name="images" type="file" id="exampleInputFile">
 
                   <p class="help-block">Example block-level help text here.</p>
                 </div>

@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Input;//接收post传值
 
 use App\Http\Requests\RegistrationRequest;//执行php artisan make:request RegistrationRequest
 
+//upload images
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+// use Illuminate\Foundation\Testing\RefreshDatabase;
+// use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class AdminController extends Controller
 {
@@ -35,24 +40,19 @@ class AdminController extends Controller
     {
         $user=new User;
         $user=$request;
-        // $validator = Validator::make($request->all(), [
-        //     'name' => 'required|max:255',
-        // ]);
 
-        // if ($validator->fails()) {
-        //     return redirect('/')
-        //         ->withInput()
-        //         ->withErrors($validator);
-        // }
-
-        // $user = new User;
-        // $user->name = $request->name;
-        // $user->save();
+        $images=$request->file('images'); //1、使用laravel 自带的request类来获取一下文件
+        $filedir="avatar/"; //2、定义图片上传路径
+        $imagesName=$images->getClientOriginalName(); //3、获取上传图片的文件名
+        $extension = $images -> getClientOriginalExtension(); //4、获取上传图片的后缀名
+        $newImagesName=md5(time()).random_int(5,5).".".$extension;//5、重新命名上传文件名字
+        $images->move($filedir,$newImagesName); //6、使用move方法移动文件.
 
         \DB::table('users')
             ->where('id', $request->id)
             ->update([
                 'id'=>$request->id,
+                'image'=>$newImagesName,
                 'name' => $request->name,
                 'email'=> $request->email,
                 'password'=>$request->password,

@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//upload images
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+
+
 class WelcomeController extends Controller
 {
     //网站首页
@@ -12,5 +19,7 @@ class WelcomeController extends Controller
     	$body= \DB::table('tasks')->pluck('body');
 
     	return view('welcome',compact('body'));
+
+        
     }
 }
