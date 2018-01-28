@@ -108,8 +108,6 @@ Route::group(['middleware' => ['web']], function () {
         }
 
         $task = new Task;
-        $user=new User;
-        dd($users);
 
         $task->body = $request->body;
         $task->title = $request->title;
