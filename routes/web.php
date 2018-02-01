@@ -113,7 +113,6 @@ Route::group(['middleware' => ['web']], function () {
         $task->title = $request->title;
         $task->save();
 
-
         return redirect('/tasks');
     });
 
