@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 Route::get('/','WelcomeController@index');
 
 
+
 // Route::get('/test', function () {
 	// $tasks = [
 	// 	'1',
